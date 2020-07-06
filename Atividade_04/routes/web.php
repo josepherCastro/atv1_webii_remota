@@ -13,6 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function(){
+    return view('template.main');
 });
+
+Route::prefix('/municipio')->group(function() {
+
+    Route::get('/', function() {
+        return view('municipio.index');
+    })->name('municipios');
+
+    Route::get('/cadastrar', function() {
+        return view('municipio.create');
+    })->name('cadastrar');
+
+    // Route::get('/alterar', function() {
+    //     return view('alterar');
+    // })->name('municipio.alterar');
+
+});
+
